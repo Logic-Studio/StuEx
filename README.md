@@ -1,1 +1,1 @@
-# StuEx
+# Stu::Ex
