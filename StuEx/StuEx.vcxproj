@@ -130,13 +130,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="StuEx.cpp" />
-    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CFilePicker.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="GlobalVar.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
