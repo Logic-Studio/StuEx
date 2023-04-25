@@ -20,6 +20,7 @@ void CFilePicker() {
     if (lpDlist != NULL)
     {
         SHGetPathFromIDList(lpDlist, szPathName);
+        
         MessageBox(NULL, szPathName, L"Dir Name", MB_OK);
     }
     else

@@ -6,19 +6,19 @@
 #pragma once
 #include <string>
 using namespace std;
-extern struct StudentInfo
+ struct StudentInfo
 {
-	string StuId; //The Id number of the student
-	string StuName; //The name of the student
-	string StuGender; //The Gender of the student
-	string StuIndex; //The class of the student belongs to
+	char StuId[12]; //The Id number of the student,12 is based on the example file
+	char StuName[50]; //The name of the student
+	char StuGender[4]; //The Gender of the student
+	char StuClassIndex[16]; //The class of the student belongs to
 	double StuScore; //The score of the student
 };
-extern enum SubjectEnum
+ enum SubjectEnum
 {
 	math=0,
 	english=1,
 	physic=2
 };
 
-extern string filePath; 
+ string filePath; 
