@@ -102,10 +102,12 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,12 +131,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Payloads.cpp" />
     <ClCompile Include="StuEx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CFilePicker.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="GlobalVar.h" />
+    <ClInclude Include="log.h" />
+    <ClInclude Include="Payloads.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
@@ -143,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="002.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
