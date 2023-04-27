@@ -135,6 +135,8 @@
     <ClInclude Include="CFilePicker.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="GlobalVar.h" />
+    <ClInclude Include="log.h" />
+    <ClInclude Include="Payloads.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
