@@ -5,16 +5,19 @@
 // SPDX-License-Identifier: MIT Lisense
 #include <Windows.h>
 #include <stdio.h>
+#include "FileReader.h"
+#include "GlobalVar.h"
 #define LONG_SLEEP_TIME 1000
 #define SHORT_SLEEP_TIME 250
-short count = 0;
+
+ short countNum = 0;
 void SplashScreen() {    //SplashScreen when you turn it on
 	short mode = 0;
 #if DEBUG
 	printf("Debug Mode");
 #endif // DEBUG
 	
-	if (count==0)
+	if (countNum==0)
 	{
 		printf("                                             ");
 		char  helloString[] = "Hello world ,this is Stu::Ex\n";
@@ -43,7 +46,7 @@ void SplashScreen() {    //SplashScreen when you turn it on
 	switch (mode)
 	{
 	case 1:
-		
+		ReadFromText_Legacy(stuInfo);
 		break;
 	case 2:
 		break;
@@ -56,11 +59,11 @@ void SplashScreen() {    //SplashScreen when you turn it on
 		break;
 	case 6:
 		system("cls");
-		count = 0;
+		countNum = 0;
 		SplashScreen();
 	default:
 		printf("输入了不存在的功能序号！请重新输入\n");
-		count++;
+		countNum++;
 		SplashScreen();
 		break;
 	}

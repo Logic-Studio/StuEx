@@ -18,6 +18,9 @@
     <ClCompile Include="StuEx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Payloads.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -51,5 +54,10 @@
     <Image Include="icon1.ico">
       <Filter>资源文件</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="002.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>
