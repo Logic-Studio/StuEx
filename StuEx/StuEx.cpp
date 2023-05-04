@@ -13,7 +13,5 @@
 int main()
 {
 	SplashScreen(); // First View of the programe
-
-	return 0;
 }
 

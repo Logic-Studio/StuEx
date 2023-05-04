@@ -131,7 +131,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Payloads.cpp" />
     <ClCompile Include="StuEx.cpp" />
   </ItemGroup>
   <ItemGroup>
