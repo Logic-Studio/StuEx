@@ -39,45 +39,16 @@ void PrintStuInfoByClassId(char classId[], int length)
 		printf("  学号           姓名   性别   班级     数学    英语    物理\n");
 		printf("----------------------------------------------------------------\n");
 
-	//for (int i = 0; i < length; i++)
-	//{
-	//	bool isCorrect = false;
-	//	short rightNum = 0;
-	//	
-	//	for (int j = 0; j < length; j++)
-	//	{
-	//		if (classId[j] == stuInfo[i].StuClassIndex[j]) //TODO:排查出严重问题，数组字符出现“？”
-	//		{
-	//			rightNum++;
-	//		}
-	//	}
-	//	if (rightNum == 12)
-	//	{
-	//		isCorrect = true;
-	//	}
-
-
-	//	if (isCorrect ==true)
-	//	{
-			//printf("%s  %s  %s   %s %d %d %d\n", stuInfo[i].StuId, stuInfo[i].StuName, stuInfo[i].StuGender,
-			//	stuInfo[i].StuClassIndex, stuInfo[i].StuScore.Math, stuInfo[i].StuScore.English, stuInfo[i].StuScore.Physics);
-	//	}
-	//}
-
-	//DEBUG
-	printf("[DEBUG]    classId[]=%s\n", classId);
-
-	bool isFullWordCorrect = false;
 	for (int i = 0; i < length; i++)
 	{
-		short rightNum = 0;
+		short rightNum = 0;//字符匹配数
 		for ( int j = 0; j < 7; j++)
 		{
 			if (classId[j] == stuInfo[i].StuClassIndex[j]) {
 				rightNum++;
 
 			}		
-			if (rightNum==7)
+			if (rightNum==7)  //已经全字匹配
 		{
 			printf("%s  %s  %s   %s %d %d %d\n", stuInfo[i].StuId, stuInfo[i].StuName, stuInfo[i].StuGender,
 				stuInfo[i].StuClassIndex, stuInfo[i].StuScore.Math, stuInfo[i].StuScore.English, stuInfo[i].StuScore.Physics);
@@ -87,23 +58,60 @@ void PrintStuInfoByClassId(char classId[], int length)
 	}
 
 }
-
 void StuCount(int length)
 {
-	
-	/*int count = 0;
 
-	ClassInfo classArray[100];
+	/////////////////////
+	///
+	//
+	//以下代码有严重错误！！！！！
+	// 
+	/////////////////////////////////
+	struct TempId
+	{
+	char classIds[7];
+	};
+
+	//TempId* copiedID = (TempId*)malloc(length * sizeof(TempId));
+	TempId copiedID[35];
+	//拷贝stuId[]
+	for (int  i = 0; i < length; i++)
+	{
+
+		strcpy(copiedID[i].classIds, stuInfo[i].StuClassIndex);
+		//copiedID[i].classIds = stuInfo[i].StuClassIndex;
+	}
 	for (int i = 0; i < length; i++)
 	{
-		for (int j = 0; j < length; j++)
+		for (int j = i+1; j < length; j++)
 		{
-			if (stuInfo[i].StuClassIndex == stuInfo[j].StuClassIndex) 
+			if (copiedID[i].classIds==copiedID[j].classIds)
 			{
-				classArray[count].className = stuInfo[i].StuClassIndex;
-				count++;
+				for (int k = j; k < length - 1; k++)
+				{
+					copiedID[k] = copiedID[k + 1];
+				}
+				length--;
+				j--;
 			}
 		}
 	}
-	*/
+	
+	for (int i = 0; i < length; i++)
+	{	int stuCount=0;
+		short rightNum = 0;//字符匹配数
+		for (int j = 0; j < 7; j++)
+		{
+			if (copiedID[j].classIds[j] == stuInfo[i].StuClassIndex[j]) {
+				rightNum++;
+
+			}
+			if (rightNum == 7)  //已经全字匹配
+			{
+				stuCount++;
+			}
+		}
+		printf("%s 班共有：         %d 人", copiedID[i].classIds, stuCount);
+	}
+
 }

@@ -20,7 +20,7 @@ struct Score
 	char StuGender[4]; //The Gender of the student
 	char StuClassIndex[7]; //The class of the student belongs to
 	Score StuScore; //The score of the student
-};
+ };
  enum SubjectEnum
 {
 	math=0,
