@@ -22,7 +22,7 @@
 	 //char runPath[1024] = { 0 };
 	// _getcwd(runPath, sizeof(runPath));
 	  //Color(6);
-	 printf("[Info]  正在打开示例文件\n");
+	 printf("[Info]    正在打开示例文件\n");
 	 int i;
 	 char result;
 	 //strcat(runPath, "002.txt");
