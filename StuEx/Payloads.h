@@ -32,35 +32,60 @@ void SearchStuInfoById(char stuId[],int length)
 	}
 }
 
+//根据班级号查找学生
 void PrintStuInfoByClassId(char classId[], int length)
 {
+		printf("匹配到以下学员：\n");
+		printf("  学号           姓名   性别   班级     数学    英语    物理\n");
+		printf("----------------------------------------------------------------\n");
+
+	//for (int i = 0; i < length; i++)
+	//{
+	//	bool isCorrect = false;
+	//	short rightNum = 0;
+	//	
+	//	for (int j = 0; j < length; j++)
+	//	{
+	//		if (classId[j] == stuInfo[i].StuClassIndex[j]) //TODO:排查出严重问题，数组字符出现“？”
+	//		{
+	//			rightNum++;
+	//		}
+	//	}
+	//	if (rightNum == 12)
+	//	{
+	//		isCorrect = true;
+	//	}
+
+
+	//	if (isCorrect ==true)
+	//	{
+			//printf("%s  %s  %s   %s %d %d %d\n", stuInfo[i].StuId, stuInfo[i].StuName, stuInfo[i].StuGender,
+			//	stuInfo[i].StuClassIndex, stuInfo[i].StuScore.Math, stuInfo[i].StuScore.English, stuInfo[i].StuScore.Physics);
+	//	}
+	//}
+
+	//DEBUG
+	printf("[DEBUG]    classId[]=%s\n", classId);
+
+	bool isFullWordCorrect = false;
 	for (int i = 0; i < length; i++)
 	{
-		bool isCorrect = false;
 		short rightNum = 0;
-		
-		for (int j = 0; j < length; j++)
+		for ( int j = 0; j < 7; j++)
 		{
-			if (classId[j] == stuInfo[i].StuClassIndex[j]) //TODO:排查出严重问题，数组字符出现“？”
-			{
+			if (classId[j] == stuInfo[i].StuClassIndex[j]) {
 				rightNum++;
-			}
-		}
-		if (rightNum == 12)
-		{
-			isCorrect = true;
-		}
 
-
-		if (isCorrect ==true)
+			}		
+			if (rightNum==7)
 		{
-			printf("匹配到以下学员：\n");
-			printf("  学号           姓名   性别   班级     数学    英语    物理\n");
-			printf("----------------------------------------------------------------\n");
 			printf("%s  %s  %s   %s %d %d %d\n", stuInfo[i].StuId, stuInfo[i].StuName, stuInfo[i].StuGender,
 				stuInfo[i].StuClassIndex, stuInfo[i].StuScore.Math, stuInfo[i].StuScore.English, stuInfo[i].StuScore.Physics);
 		}
+		}
+
 	}
+
 }
 
 void StuCount(int length)

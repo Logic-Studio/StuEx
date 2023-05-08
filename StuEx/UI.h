@@ -124,3 +124,6 @@ void SplashScreen() {    //SplashScreen when you turn it on
 	
 }
 
+//TODO:将SplashScreen()中的模式拆分
+//对模式进行选择
+void ModeSwitch(){}
