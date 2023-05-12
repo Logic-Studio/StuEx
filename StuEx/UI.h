@@ -106,7 +106,7 @@ void SplashScreen() {    //SplashScreen when you turn it on
 	case 4:
 		countNum++;
 		//scanf("%s", &class_id);
-		StuCount( 35);
+		StuCount(35);
 		SplashScreen();
 		break;
 	case 5:

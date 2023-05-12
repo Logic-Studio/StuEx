@@ -27,7 +27,7 @@ struct Score
 	english=1,
 	physic=2
 };
-
+ int stuLength = 0;
  string filePath; 
-
-StudentInfo stuInfo[35];
+ //¶¯Ì¬·ÖÅä
+StudentInfo* stuInfo = (StudentInfo*)malloc(stuLength * sizeof(StudentInfo));
