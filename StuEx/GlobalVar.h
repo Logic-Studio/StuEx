@@ -18,16 +18,16 @@ struct Score
 	char StuId[12]; //The Id number of the student,12 is based on the example file
 	char StuName[50]; //The name of the student
 	char StuGender[4]; //The Gender of the student
-	char StuClassIndex[16]; //The class of the student belongs to
+	char StuClassIndex[7]; //The class of the student belongs to
 	Score StuScore; //The score of the student
-};
+ };
  enum SubjectEnum
 {
 	math=0,
 	english=1,
 	physic=2
 };
-
+ int stuLength = 0;
  string filePath; 
-
-StudentInfo stuInfo[35];
+ //∂ØÃ¨∑÷≈‰
+StudentInfo* stuInfo = (StudentInfo*)malloc(stuLength * sizeof(StudentInfo));

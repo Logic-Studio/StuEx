@@ -36,11 +36,7 @@
 		  
 		  result= fscanf(fp, "%s %s	%s	%s  %d %d %d\n", stu[i].StuId, stu[i].StuName, stu[i].StuGender,
 			 stu[i].StuClassIndex,&stu[i].StuScore.Math,&stu[i].StuScore.English,&stu[i].StuScore.Physics);
-#if DEBUG
-		 printf("%s   %s	%s	%s  %d %d %d\n", stu[i].StuId, stu[i].StuName, stu[i].StuGender,
-			 stu[i].StuClassIndex, stu[i].StuScore.Math, stu[i].StuScore.English, stu[i].StuScore.Physics);
-#endif // DEBUG
-
+		  stuLength++;
 
 		if (result == EOF) break;
 	 }

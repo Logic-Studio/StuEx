@@ -105,6 +105,8 @@ void SplashScreen() {    //SplashScreen when you turn it on
 		break;
 	case 4:
 		countNum++;
+		//scanf("%s", &class_id);
+		StuCount(35);
 		SplashScreen();
 		break;
 	case 5:
@@ -124,3 +126,6 @@ void SplashScreen() {    //SplashScreen when you turn it on
 	
 }
 
+//TODO:将SplashScreen()中的模式拆分
+//对模式进行选择
+void ModeSwitch(){}
