@@ -20,37 +20,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="CFilePicker.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="GlobalVar.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="FileReader.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="UI.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="log.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Payloads.h">
       <Filter>头文件</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Resource.rc">
-      <Filter>资源文件</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="icon1.ico">
-      <Filter>资源文件</Filter>
-    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="002.txt">
