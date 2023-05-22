@@ -1,3 +1,4 @@
+//包含了对于全局变量类型的定义
 
 // Copyright (c) Logic.Studio 
 // Members:刘明鑫、刘承锦、佟雨锟
@@ -5,6 +6,7 @@
 
 #pragma once
 
+//学生数学、英语、物理的分数
 struct Score
 {
 	int Math;
@@ -13,14 +15,11 @@ struct Score
 };
  struct StudentInfo
 {
-	char StuId[12]; //The Id number of the student,12 is based on the example file
-	char StuName[50]; //The name of the student
-	char StuGender[4]; //The Gender of the student
-	char StuClassIndex[7]; //The class of the student belongs to
-	Score StuScore; //The score of the student
+	char StuId[12]; //学生学号，数组容量12基于示例文件002.txt
+	char StuName[50]; //学生姓名
+	char StuGender[4]; //学生性别
+	char StuClassIndex[8]; //学生班级归属
+	Score StuScore; //学生成绩
  };
-
- int stuLength = 0;
- //动态分配
-//StudentInfo* stuInfo = (StudentInfo*)malloc(stuLength * sizeof(StudentInfo));
- StudentInfo stuInfo[35] = {0};
+ //学生人数
+ int stuLength = 1;

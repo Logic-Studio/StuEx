@@ -4,18 +4,22 @@
 // SPDX-License-Identifier: MIT Lisense
 
 #include "GlobalVar.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 //根据学号查找学生
-void SearchStuInfoById(char stuId[],int length)  
+void SearchStudentInfoById(char stuId[],StudentInfo stuTemp[], int length)
 {
-
+	int numIndex = 1;
+	bool isCorrect = false; 
 	for (int i = 0; i < length; i++)
 	{	//全字匹配检验
-		bool isCorrect = false; //Initialize the check value
-		short rightNum = 0;
+		isCorrect = false;
+		int rightNum = 0;
 		for (int j = 0; j < length; j++)
 		{
-			if (stuId[j]== stuInfo[i].StuId[j])
+			if (stuId[j]== stuTemp[i].StuId[j])
 			{
 				rightNum++;
 			}
@@ -25,38 +29,43 @@ void SearchStuInfoById(char stuId[],int length)
 			isCorrect = true;
 		}
 
-		if (isCorrect==true)
+		if (isCorrect != false)
 		{
-			printf("----------------------------------------------------------------\n");
+			printf("-----------------------------------------------------------------------\n");
 			printf("匹配到以下学员：\n");
-			printf("  学号            姓名   性别   班级     数学    英语    物理\n");
-			printf("----------------------------------------------------------------\n");
-			printf("%12s  %s  %s   %s %d %d %d\n", stuInfo[i].StuId, stuInfo[i].StuName, stuInfo[i].StuGender,
-				stuInfo[i].StuClassIndex, stuInfo[i].StuScore.Math, stuInfo[i].StuScore.English, stuInfo[i].StuScore.Physics);
+			printf(" 序 号     学号           姓名   性别   班级     数学    英语    物理\n");
+			printf("-----------------------------------------------------------------------\n");
+			printf("   %-2d     %-12.12s  %-10s  %-4s  %-8s  %-3d  %-3d  %-3d\n",numIndex, stuTemp[i].StuId, stuTemp[i].StuName, stuTemp[i].StuGender,
+				stuTemp[i].StuClassIndex, stuTemp[i].StuScore.Math, stuTemp[i].StuScore.English, stuTemp[i].StuScore.Physics);
+			numIndex++;
 		}
+		
 	}
 }
 
 //根据班级号查找学生
-void PrintStuInfoByClassId(char classId[], int length)
-{
+void PrintStudentInfoByClass(char classId[], StudentInfo stuTemp[], int length)
+{		
+		int numIndex =1;
 		printf("匹配到以下学员：\n");
-		printf("  学号           姓名   性别   班级     数学    英语    物理\n");
-		printf("----------------------------------------------------------------\n");
+		printf(" 序 号     学号           姓名   性别   班级     数学    英语    物理\n");
+		printf("-----------------------------------------------------------------------\n");
 
 	for (int i = 0; i < length; i++)
 	{
 		short rightNum = 0;//字符匹配数
 		for ( int j = 0; j < 7; j++)
 		{
-			if (classId[j] == stuInfo[i].StuClassIndex[j]) {
+			if (classId[j] == stuTemp[i].StuClassIndex[j]) {
 				rightNum++;
 
 			}		
 			if (rightNum==7)  //已经全字匹配
-		{
-			printf("%s  %s  %s   %s %d %d %d\n", stuInfo[i].StuId, stuInfo[i].StuName, stuInfo[i].StuGender,
-				stuInfo[i].StuClassIndex, stuInfo[i].StuScore.Math, stuInfo[i].StuScore.English, stuInfo[i].StuScore.Physics);
+			{
+				
+			printf("   %-2d     %-12.12s  %-10s  %-4s  %-8s  %-3d  %-3d  %-3d\n", numIndex,stuTemp[i].StuId, stuTemp[i].StuName, stuTemp[i].StuGender,
+				stuTemp[i].StuClassIndex, stuTemp[i].StuScore.Math, stuTemp[i].StuScore.English, stuTemp[i].StuScore.Physics);
+			numIndex++;
 		}
 		}
 
@@ -66,16 +75,16 @@ void PrintStuInfoByClassId(char classId[], int length)
 
 
 //统计各个班级的人数
-void GetStuNumInClass() 
+void PrintClassCount(StudentInfo stuTemp[])
 {
 		//拷贝stuInfo中的班级号到classId数组中
 
-	char classId[35][7] = { 0 };
+	char classId[35][8] = { 0 };
 	for (int i = 0; i < 35; i++)
 		{
 			for (int j = 0; j < 7; j++)
 			{
-				classId[i][j] = stuInfo[i].StuClassIndex[j]+'\0';
+				classId[i][j] = stuTemp[i].StuClassIndex[j]+'\0';
 			}
 	}
 	//classId数组去重
@@ -104,17 +113,21 @@ void GetStuNumInClass()
 	{
 		for (int j = 0; j < 35; j++)
 		{
-			if (strcmp(classIdNoRepeat[i], stuInfo[j].StuClassIndex) == 0)
+			if (strcmp(classIdNoRepeat[i], stuTemp[j].StuClassIndex) == 0)
 			{
 				classNum[i]++;
 			}
 		}
 	}
 	//输出各个班级的人数
-	printf("各个班级的人数如下：\n");
+	printf("各个班级的人数如下：\n");	
+	printf("----------------------------------------------------------------\n");
+
 	for (int i = 0; i < classIdNoRepeatNum; i++)
 	{
-		printf("%s班级的人数为：%d\n", classIdNoRepeat[i], classNum[i]);
+		printf("%s 班级的人数为：      %d\n", classIdNoRepeat[i], classNum[i]);
 	}
 
 }
+
+
