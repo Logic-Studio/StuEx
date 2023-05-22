@@ -1,8 +1,8 @@
-// UI.cpp : This file contains the visual effect of the program.
 
 // Copyright (c) Logic.Studio 
 // Members:刘明鑫、刘承锦、佟雨锟
 // SPDX-License-Identifier: MIT Lisense
+
 #include <Windows.h>
 #include <stdio.h>
 #include "FileReader.h"
@@ -47,21 +47,12 @@ int RandNum(int minRange, int maxRange)
 }
 
 void SplashScreen() {    //SplashScreen when you turn it on
-	short mode = 0;
-#if DEBUG
-	printf("Debug Mode");
-#endif // DEBUG
-	
+	int mode = 0;
+
 	if (countNum==0)
 	{
 		printf("                                             ");
-		char  helloString[] = "Hello world ,this is Stu::eX\n";
-		for (int i = 0; i < strlen(helloString); i++)
-		{
-			Color(RandNum(1, 15));
-			printf("%c", helloString[i]);
-			Sleep(SHORT_SLEEP_TIME);
-		}
+		printf("**********学生信息管理系统**********\n");
 	}
 	Color(7);
 	printf("你可以：\n");
@@ -79,7 +70,7 @@ void SplashScreen() {    //SplashScreen when you turn it on
 	printf("                          6.清屏\n");
 	//Sleep(LONG_SLEEP_TIME);
 	printf("输入你的选择：");
-	scanf_s("%hd", &mode);		
+	scanf_s("%d", &mode);		
 	
 	char  stu_id[12];
 	char  class_id[16];
@@ -106,7 +97,7 @@ void SplashScreen() {    //SplashScreen when you turn it on
 	case 4:
 		countNum++;
 		//scanf("%s", &class_id);
-		StuCount(35);
+		GetStuNumInClass();
 		SplashScreen();
 		break;
 	case 5:
@@ -122,10 +113,4 @@ void SplashScreen() {    //SplashScreen when you turn it on
 		SplashScreen();
 		break;
 	}
-
-	
 }
-
-//TODO:将SplashScreen()中的模式拆分
-//对模式进行选择
-void ModeSwitch(){}
