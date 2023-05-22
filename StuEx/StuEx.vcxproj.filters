@@ -29,9 +29,12 @@
     <ClInclude Include="Payloads.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="002.txt">
+    <Text Include="..\002.txt">
       <Filter>资源文件</Filter>
     </Text>
   </ItemGroup>
