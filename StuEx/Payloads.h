@@ -1,3 +1,4 @@
+//Payload.h : 此文件定义了程序的所有主要功能
 
 // Copyright (c) Logic.Studio 
 // Members:刘明鑫、刘承锦、佟雨锟
@@ -33,9 +34,9 @@ void SearchStudentInfoById(char stuId[],StudentInfo stuTemp[], int length)
 		{
 			printf("-----------------------------------------------------------------------\n");
 			printf("匹配到以下学员：\n");
-			printf(" 序 号     学号           姓名   性别   班级     数学    英语    物理\n");
+			printf(" 序 号       学号         姓名       性别   班级    数学    英语    物理\n");
 			printf("-----------------------------------------------------------------------\n");
-			printf("   %-2d     %-12.12s  %-10s  %-4s  %-8s  %-3d  %-3d  %-3d\n",numIndex, stuTemp[i].StuId, stuTemp[i].StuName, stuTemp[i].StuGender,
+			printf("   %-2d     %-12.12s    %-10s %-4s  %-8s  %-3d     %-3d     %-3d\n",numIndex, stuTemp[i].StuId, stuTemp[i].StuName, stuTemp[i].StuGender,
 				stuTemp[i].StuClassIndex, stuTemp[i].StuScore.Math, stuTemp[i].StuScore.English, stuTemp[i].StuScore.Physics);
 			numIndex++;
 		}
@@ -48,7 +49,7 @@ void PrintStudentInfoByClass(char classId[], StudentInfo stuTemp[], int length)
 {		
 		int numIndex =1;
 		printf("匹配到以下学员：\n");
-		printf(" 序 号     学号           姓名   性别   班级     数学    英语    物理\n");
+		printf(" 序 号     学号         姓名        性别   班级    数学  英语  物理\n");
 		printf("-----------------------------------------------------------------------\n");
 
 	for (int i = 0; i < length; i++)
@@ -63,7 +64,7 @@ void PrintStudentInfoByClass(char classId[], StudentInfo stuTemp[], int length)
 			if (rightNum==7)  //已经全字匹配
 			{
 				
-			printf("   %-2d     %-12.12s  %-10s  %-4s  %-8s  %-3d  %-3d  %-3d\n", numIndex,stuTemp[i].StuId, stuTemp[i].StuName, stuTemp[i].StuGender,
+			printf("   %-2d     %-12.12s  %-10s  %-4s  %-8s  %-3d   %-3d   %-3d\n", numIndex,stuTemp[i].StuId, stuTemp[i].StuName, stuTemp[i].StuGender,
 				stuTemp[i].StuClassIndex, stuTemp[i].StuScore.Math, stuTemp[i].StuScore.English, stuTemp[i].StuScore.Physics);
 			numIndex++;
 		}
@@ -119,6 +120,11 @@ void PrintClassCount(StudentInfo stuTemp[])
 			}
 		}
 	}
+	int total = 0;
+	for (int i = 0; i < classIdNoRepeatNum; i++)
+	{
+		total += classNum[i];
+	}
 	//输出各个班级的人数
 	printf("各个班级的人数如下：\n");	
 	printf("----------------------------------------------------------------\n");
@@ -127,7 +133,7 @@ void PrintClassCount(StudentInfo stuTemp[])
 	{
 		printf("%s 班级的人数为：      %d\n", classIdNoRepeat[i], classNum[i]);
 	}
-
+	printf("\n共计：                      %d\n", total);
 }
 
 

@@ -1,4 +1,4 @@
-//包含了对于全局变量类型的定义
+//GlobalVar.h :包含了对于全局变量类型的定义
 
 // Copyright (c) Logic.Studio 
 // Members:刘明鑫、刘承锦、佟雨锟
@@ -13,6 +13,8 @@ struct Score
 	int English;
 	int Physics;
 };
+
+//学生信息类型
  struct StudentInfo
 {
 	char StuId[12]; //学生学号，数组容量12基于示例文件002.txt

@@ -1,3 +1,4 @@
+//UI.h :此文件定义了有关显示效果的函数
 
 // Copyright (c) Logic.Studio 
 // Members:刘明鑫、刘承锦、佟雨锟
@@ -13,7 +14,8 @@
 
 
   
-  /*0 = 黑色       8 = 灰色
+  /*控制文字显示颜色
+	0 = 黑色       8 = 灰色
 	1 = 蓝色       9 = 淡蓝色
 	2 = 绿色       A = 淡绿色
 	3 = 浅绿色     B = 淡浅绿色
@@ -22,7 +24,7 @@
 	6 = 黄色       E = 淡黄色
 	7 = 白色       F = 亮白色
   */
-void Color(short x)
+ void Color(short x)
 
 {
 	if (x >= 0 && x <= 15)// Parameters in the range of 0-15 colors
@@ -32,6 +34,8 @@ void Color(short x)
 
 
 }
+
+ //获得随机数，此函数有带范围的重载
 int RandNum()
 {
 	srand((unsigned)time(NULL));
@@ -44,8 +48,3 @@ int RandNum(int minRange, int maxRange)
 	return rand() % maxRange + minRange;
 }
 
-
-void FreeMemory(StudentInfo *stuTemp)
-{
-	free(stuTemp);
-}
