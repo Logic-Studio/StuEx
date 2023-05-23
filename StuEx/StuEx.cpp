@@ -6,8 +6,13 @@
 
 #include<stdio.h>
 #include "Payloads.h"
-#include "UI.h"
 #include "FileReader.h"
+
+//释放内存
+void FreeMemory(StudentInfo* stuTemp)
+{
+	free(stuTemp);
+}
 
 int main()
 {
@@ -18,17 +23,18 @@ int main()
 	//预先初始化stuInfo为大小为1的数组
 	StudentInfo* stuInfo = (StudentInfo*)malloc(1 * sizeof(StudentInfo));
 	
-	int choice;
+	int choice;//选择模式
+	//文字输入
 	char stuId[12];
 	char classIndex[7];
 
 	do {
-		printf("\n********** 学生信息管理系统 **********\n");
-		printf("1. 读入数据\n");
-		printf("2. 根据学号查询学生信息\n");
-		printf("3. 根据班号输出该班学生信息\n");
-		printf("4. 输出各个班的人数\n");
-		printf("5. 退出\n");
+		printf("\n                                  ********** 学生信息管理系统 **********\n");
+		printf("  1. 读入数据\n");
+		printf("  2. 根据学号查询学生信息\n");
+		printf("  3. 根据班号输出该班学生信息\n");
+		printf("  4. 输出各个班的人数\n");
+		printf("  5. 退出\n");
 		printf("请选择菜单编号：");
 		scanf("%d", &choice);
 
@@ -37,13 +43,6 @@ int main()
 		{
 			char* filePath = OpenFilePicker();
 			stuInfo= ReadDataFile(filePath, stuInfo);
-
-			//打印stuInfo的全部内容
-			for (int i = 0; i < stuLength; i++)
-			{
-				printf("%12s  %s  %s   %s %d %d %d\n", stuInfo[i].StuId, stuInfo[i].StuName, stuInfo[i].StuGender,
-					stuInfo[i].StuClassIndex, stuInfo[i].StuScore.Math, stuInfo[i].StuScore.English, stuInfo[i].StuScore.Physics);
-			}
 		}
 		break;
 		case 2:
@@ -61,10 +60,10 @@ int main()
 			break;
 		case 5:
 			FreeMemory(stuInfo);
-			printf("程序已退出。\n");
+			printf("[Info] 程序已退出。\n");
 			break;
 		default:
-			printf("无效的菜单选项，请重新输入。\n");
+			printf("[Warning] 无效的菜单选项，请重新输入。\n");
 			break;
 		}
 	} while (choice != 5);
