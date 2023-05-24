@@ -1,5 +1,5 @@
 # Stu::Ex
-基于C语言的CLI的学生管理系统
+基于C语言的CLI学生管理系统
 
 # 部署环境
 **Visual Studio 2022**
