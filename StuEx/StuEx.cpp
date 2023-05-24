@@ -9,9 +9,13 @@
 #include "FileReader.h"
 
 //释放内存
-void FreeMemory(StudentInfo* stuTemp)
+void FreeMemory(StudentInfo* stuTemp,bool isExit)
 {
 	free(stuTemp);
+	if (isExit)
+	{
+	exit(0);
+	}
 }
 
 int main()
@@ -22,7 +26,7 @@ int main()
 	//包含学生全部信息
 	//预先初始化stuInfo为大小为1的数组
 	StudentInfo* stuInfo = (StudentInfo*)malloc(1 * sizeof(StudentInfo));
-	
+	bool IsExit = false;
 	int choice;//选择模式
 	//文字输入
 	char stuId[12];
@@ -59,7 +63,8 @@ int main()
 			PrintClassCount(stuInfo);
 			break;
 		case 5:
-			FreeMemory(stuInfo);
+			IsExit = true;
+			FreeMemory(stuInfo,IsExit);
 			printf("[Info] 程序已退出。\n");
 			break;
 		default:
